@@ -23,3 +23,40 @@ list.map(function(item) {
 
 // using arrow function
 list.map((item) => console.log(item));
+
+
+// another example
+// here is the problem I din't get it though
+// you can not use 'this' by default
+// you have to assign to a variable and then call it 
+// to access the property
+
+// let person = {
+//     first: 'Angie',
+//     hobbies: ['bike', 'hike', 'ski'],
+//     printHobbies: function() {
+//         let _this = this;
+//         this.hobbies.forEach(function (hobby) {
+//             let string = `${_this.first} likes to ${hobby}`;
+//             console.log(string);
+//         });
+//     }
+// };
+
+// person.printHobbies();
+
+
+// we can get rid of the this problem with arrow function
+// now you can use the default this method
+let person = {
+    first: 'Angie',
+    hobbies: ['bike', 'hike', 'ski'],
+    printHobbies: function() {
+        this.hobbies.forEach( (hobby) => {
+            let string = `${this.first} likes to ${hobby}`;
+            console.log(string);
+        });
+    }
+};
+
+person.printHobbies();
